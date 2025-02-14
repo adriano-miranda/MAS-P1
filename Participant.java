@@ -1,0 +1,113 @@
+import jade.core.AID;
+import jade.core.Agent;
+
+import java.util.Arrays;
+import java.util.LinkedList;
+
+
+public class Participant extends Agent{
+    public Participant() {
+        super(); // Llama al constructor de Agent
+    }
+    @Override
+    protected void setup() {
+        Object[] args = getArguments();
+        if (args != null && args.length > 0) {
+            this.agentAID = getAID();
+            this.commitment = (int) args[0];
+            this.currentCommitment = commitment;
+        } else {
+            System.err.println(getAID().getLocalName() + ": Error, argumentos inválidos.");
+            doDelete();
+            return;
+        }
+        System.out.println(getAID().getLocalName() + " ha sido iniciado.");
+
+        // Iniciar el comportamiento de registro al simulador
+        addBehaviour(new RegisterRequestBehaviour());
+        // Agregar el comportamiento RequestActionBehaviour solo si simulationState está listo
+        addBehaviour(new RequestActionBehaviour());
+    }
+
+    @Override
+    protected void takeDown() {
+        System.out.println(getAID().getLocalName() + " está siendo cerrado.");
+        super.takeDown();
+    }
+
+    private AID agentAID; // identifies the participant agent
+    private SimulationState simulationState; // represents participant's agents perception of the world
+    private int numItems; // counter for items scored by the participant agent
+    private int numTraps; // counter for traps in which the participant agent has fallen into
+    private int commitment; // unmutable: defines participant's agent commitment
+    private int currentCommitment; // current commitment of the participant in the simulation
+
+    public Participant(AID agentAID, SimulationState simulationState, int commitment) {
+        this.agentAID = agentAID;
+        this.simulationState = simulationState;
+        this.numItems = 0;
+        this.numTraps = 0;
+        this.commitment = commitment;
+        this.currentCommitment = commitment;
+    }
+
+    // Gets participant's global score
+    public int getScore()
+    {
+        return numItems - numTraps;
+    }
+
+    public int getCommitment()
+    {
+        return commitment;
+    }
+
+    public AID getAgentAID()
+    {
+        return agentAID;
+    }
+
+    public SimulationState getSimulationState()
+    {
+        return simulationState;
+    }
+
+    public void updateState(SimulationState simulationState)
+    {
+        this.simulationState = simulationState;
+    }
+
+    public int increaseItemCounter(int howMuch)
+    {
+        numItems += howMuch;
+        return numItems;
+    }
+
+    public int increaseTrapCounter(int howMuch)
+    {
+        numTraps += howMuch;
+        return numTraps;
+    }
+
+    public int decreaseCommitmentSteps(int howMuch)
+    {
+        currentCommitment -= howMuch;
+        return currentCommitment;
+    }
+
+    public void resetCommitmentSteps()
+    {
+        currentCommitment = commitment;
+    }
+
+    /* Mostly for debugging purposes. Returns string representing current participant's state */
+    @Override
+    public String toString() {
+        LinkedList<Position> posToHighlight = new LinkedList<Position>(Arrays.asList(simulationState.getPosition()));
+
+        // Information about the participant's state
+        return String.format("\nName: %s\nPosition: (%d,%d)\nCommitment: %d-%d\nScore: %d\nNumTraps: %d\nMap:\n%s",
+                agentAID.getLocalName(), simulationState.getPosition().x, simulationState.getPosition().y,
+                currentCommitment, commitment, getScore(), numTraps, simulationState.getMap().toString(posToHighlight));
+    }
+}
