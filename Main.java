@@ -9,6 +9,7 @@ public class Main {
     public static void main(String[] args) {
         // Configuración del entorno JADE (para crear un contenedor)
         Runtime rt = Runtime.instance();
+
         Profile p = new ProfileImpl();
 
         // Crear un contenedor principal con el perfil configurado
@@ -30,7 +31,7 @@ public class Main {
                 final int participantId = i;
                 AgentController participantAgentController = mainContainer.createNewAgent(
                         "Participant" + participantId, // Nombre del agente participante
-                        "Participant", // Clase que representa a los participantes
+                        "ParticipantAgent", // Clase que representa a los participantes
                         new Object[] {10} // Parámetros adicionales si es necesario, en este caso commitment
                 );
 

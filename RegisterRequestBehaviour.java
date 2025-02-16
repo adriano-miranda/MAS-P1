@@ -20,16 +20,13 @@ public class RegisterRequestBehaviour extends OneShotBehaviour {
         System.out.println(myAgent.getAID().getLocalName() + " ha enviado solicitud para unirse a la simulación.");
 
         // Esperar la respuesta del SimulatorAgent
-        MessageTemplate mt = MessageTemplate.and(
-                MessageTemplate.MatchConversationId("join-simulation-request"),
-                MessageTemplate.MatchPerformative(ACLMessage.AGREE)
-        );
+        MessageTemplate mt = MessageTemplate.MatchConversationId("join-simulation-request");
         ACLMessage reply = myAgent.receive(mt);
-
         if (reply != null) {
             // Si se acepta la solicitud, procesar la respuesta
             try {
                 SimulationState initialState = (SimulationState) reply.getContentObject();
+                ((ParticipantAgent) myAgent).setState(initialState);
                 System.out.println(myAgent.getAID().getLocalName() + " ha sido registrado en la simulación.");
                 // Aquí podrías iniciar otro comportamiento relacionado con la simulación
             } catch (Exception e) {

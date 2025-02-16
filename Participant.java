@@ -9,25 +9,6 @@ public class Participant extends Agent{
     public Participant() {
         super(); // Llama al constructor de Agent
     }
-    @Override
-    protected void setup() {
-        Object[] args = getArguments();
-        if (args != null && args.length > 0) {
-            this.agentAID = getAID();
-            this.commitment = (int) args[0];
-            this.currentCommitment = commitment;
-        } else {
-            System.err.println(getAID().getLocalName() + ": Error, argumentos inválidos.");
-            doDelete();
-            return;
-        }
-        System.out.println(getAID().getLocalName() + " ha sido iniciado.");
-
-        // Iniciar el comportamiento de registro al simulador
-        addBehaviour(new RegisterRequestBehaviour());
-        // Agregar el comportamiento RequestActionBehaviour solo si simulationState está listo
-        addBehaviour(new RequestActionBehaviour());
-    }
 
     @Override
     protected void takeDown() {
