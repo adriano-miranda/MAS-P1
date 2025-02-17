@@ -15,10 +15,7 @@ import java.util.Random;
 public class RequestActionBehaviour extends CyclicBehaviour {
 
     public void action() {
-        //Si recibo un request
-        while (((ParticipantAgent) myAgent).getRegistered()){
-            System.out.println("Action, not registered agent yet");
-        }
+
         try {
             MessageTemplate mt = MessageTemplate.and(
                     MessageTemplate.MatchConversationId("request-action"),
