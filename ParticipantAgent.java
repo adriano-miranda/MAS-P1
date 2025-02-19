@@ -8,7 +8,7 @@ public class ParticipantAgent extends Agent {
     private int commitment = 1;
     private boolean registered = false;
     private SimulationState agentState;
-
+    private boolean simulatorFound = false;
     @Override
     protected void setup() {
         Object[] args = getArguments();
@@ -21,7 +21,9 @@ public class ParticipantAgent extends Agent {
         }
 
         System.out.println(getAID().getLocalName() + " ha sido iniciado.");
+        addBehaviour(new CheckSimulatorAgentBehaviour(this, 2000));
         // Iniciar el comportamiento de registro al simulador
+
         addBehaviour(new RegisterRequestBehaviour());
         // Agregar el comportamiento RequestActionBehaviour solo si simulationState está listo
 
@@ -35,6 +37,9 @@ public class ParticipantAgent extends Agent {
         return  String.valueOf(commitment);
     }
 
+    public void setSimulatorFound(boolean set){
+        this.simulatorFound = set;
+    }
     public void setRegistered(boolean set){
         registered = set;
     }

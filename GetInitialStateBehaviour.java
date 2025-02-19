@@ -27,6 +27,7 @@ public class GetInitialStateBehaviour extends SimpleBehaviour {
                 System.out.println("Initial simulation map: \n" + initialState.getMap().toString());
                 System.out.println("Initial simulation position: \n" + initialState.getPosition().toString());
 
+                ((ParticipantAgent) myAgent).setState(initialState);
                 received = true;
             } catch (UnreadableException e) {
                 e.printStackTrace(); // Manejo de la excepción (puedes registrar el error o tomar otra acción)
