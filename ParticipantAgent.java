@@ -51,6 +51,10 @@ public class ParticipantAgent extends Agent {
         agentState = simulationState;
     }
 
+    public SimulationState getParticipantState(){
+        return agentState;
+    }
+
     @Override
     protected void takeDown() {
         System.out.println(getAID().getLocalName() + " está siendo cerrado.");
