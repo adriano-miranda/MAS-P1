@@ -30,6 +30,8 @@ public class CheckSimulatorAgentBehaviour extends TickerBehaviour {
                     AID simulatorAgent = agentDesc.getName();
                     System.out.println("Found Simulator Agent: " + simulatorAgent.getLocalName());
                     ((ParticipantAgent) myAgent).setSimulatorFound(true);
+                    myAgent.addBehaviour(new RegisterRequestBehaviour());
+
                     stop();
                 }
             } else {

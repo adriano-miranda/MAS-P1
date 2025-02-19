@@ -27,12 +27,12 @@ public class Main {
             System.out.println("SimulatorAgent ha sido iniciado.");
 
             // Crear y poner en marcha los participantes (2 agentes de ejemplo)
-            for (int i = 1; i <= 3; i++) {
+            for (int i = 1; i <= 1; i++) {
                 final int participantId = i;
                 AgentController participantAgentController = mainContainer.createNewAgent(
                         "Participant" + participantId, // Nombre del agente participante
                         "ParticipantAgent", // Clase que representa a los participantes
-                        new Object[] {10} // Parámetros adicionales si es necesario, en este caso commitment
+                        new Object[] {1} // Parámetros adicionales si es necesario, en este caso commitment
                 );
 
                 participantAgentController.start(); // Iniciar el agente

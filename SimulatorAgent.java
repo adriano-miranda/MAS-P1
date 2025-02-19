@@ -15,13 +15,13 @@ public class SimulatorAgent extends Agent {
     private Map _map;
 
     // Map parameters
-    int mapSize = 10;
-    int numItems = 5;
-    int numTraps = 10;
+    int mapSize = 3;
+    int numItems = 2;
+    int numTraps = 4;
 
     // Simulation parameters
-    int numParticipants = 3;
-    int numSimRounds = 1000;
+    int numParticipants = 1;
+    int numSimRounds = 20;
     int numStepsMapReDist = 10; // If equals numSimRounds, implies no map rescheduling
 
     // Simulation state
@@ -181,6 +181,7 @@ public class SimulatorAgent extends Agent {
         System.out.println("\nParticipant's status:");
         for(Participant participant : participants)
         {
+            System.out.println("Round number = " + roundCount);
             System.out.print(participant.toString());
         }
 

@@ -24,14 +24,11 @@ public class ParticipantAgent extends Agent {
         addBehaviour(new CheckSimulatorAgentBehaviour(this, 2000));
         // Iniciar el comportamiento de registro al simulador
 
-        addBehaviour(new RegisterRequestBehaviour());
         // Agregar el comportamiento RequestActionBehaviour solo si simulationState está listo
 
         addBehaviour(new GetInitialStateBehaviour());
 
-        addBehaviour(new RequestActionBehaviour());
     }
-
 
     public String getCommitment(){
         return  String.valueOf(commitment);

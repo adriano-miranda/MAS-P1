@@ -43,7 +43,6 @@ public class SimulationManagerBehaviour extends Behaviour {
 
                         // Check if valid, process action, and calculate new participant state
                         SimulationState newSimulationState = processAction(requestedPosition, participant);
-
                         // Return state
                         ACLMessage reply = msg.createReply();
                         reply.setPerformative(ACLMessage.INFORM);
@@ -107,6 +106,13 @@ public class SimulationManagerBehaviour extends Behaviour {
         boolean validRequest = isValidMovement(newPosition, false) &&
                 !occupiedByAgentPosition(newPosition);
 
+        if (validRequest){
+            System.out.println("Requested position " + newPosition.toString() + "is valid");
+        }else{
+            System.out.println("Requested position " + newPosition.toString() + "is invalid");
+
+        }
+
         int remainingCommitmentSteps = participant.decreaseCommitmentSteps(1);
 
         // Update state and corresponding commitment/scoring fields
@@ -133,6 +139,8 @@ public class SimulationManagerBehaviour extends Behaviour {
                 // valid movement other than to item position
                 if (currentMap.isTrapPosition(newPosition))
                 {
+                    System.out.println("Requested position " + newPosition.toString() + "is trapped");
+
                     participant.increaseTrapCounter(1);
 
                     // It remains trapped
