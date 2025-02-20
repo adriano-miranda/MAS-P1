@@ -1,12 +1,3 @@
-import jade.core.AID;
-import jade.core.behaviours.CyclicBehaviour;
-import jade.core.behaviours.OneShotBehaviour;
-import jade.lang.acl.ACLMessage;
-import jade.lang.acl.MessageTemplate;
-import jade.core.behaviours.Behaviour;
-import java.io.Serializable;
-
-import jade.core.AID;
 import jade.core.behaviours.CyclicBehaviour;
 import jade.lang.acl.ACLMessage;
 import jade.lang.acl.MessageTemplate;
@@ -14,46 +5,54 @@ import java.util.Random;
 
 public class RequestActionBehaviour extends CyclicBehaviour {
 
+    Random rand = new Random();
+    GenericOperator[] moves = {new MoveDownOperator(), new MoveLeftOperator(),
+            new MoveRightOperator(), new MoveUpOperator()};
+
+    @Override
     public void action() {
-        //Si recibo un request
-        try {
-            MessageTemplate mt = MessageTemplate.and(
-                    MessageTemplate.MatchConversationId("request-action"),
-                    MessageTemplate.MatchPerformative(ACLMessage.REQUEST));
-            ACLMessage msg = myAgent.receive(mt);
-            //Envio una respuesta
-            if (msg != null) {
+        MessageTemplate mt = MessageTemplate.and(
+                MessageTemplate.MatchConversationId("request-action"),
+                MessageTemplate.MatchPerformative(ACLMessage.REQUEST));
 
-                Participant participant = (Participant) myAgent;
-                SimulationState simulationState = participant.getSimulationState(); // Accedemos directamente
-                if(simulationState!=null) {
-                    Position currentPosition = simulationState.getPosition();
+        ACLMessage msg = myAgent.receive(mt);
+        if(msg != null){
+            try {
+                ACLMessage reply = msg.createReply();
+                //This method automatically sets several parameters of the new message based on the received
+                //message, including receiver,language, ontology, protocol, conversation-id, in-reply-to, and reply-with
 
-
-                    Position[] possibleMoves = {
-                            new Position(currentPosition.x + 1, currentPosition.y),
-                            new Position(currentPosition.x - 1, currentPosition.y),
-                            new Position(currentPosition.x, currentPosition.y + 1),
-                            new Position(currentPosition.x, currentPosition.y - 1)
-                    };
-
-                    Position newPosition = possibleMoves[new Random().nextInt(possibleMoves.length)];
-
-                    ACLMessage response = new ACLMessage(ACLMessage.INFORM);
-                    response.setSender(participant.getAgentAID());
-                    response.setConversationId("request-action");
-                    response.addReceiver(new AID("SimulatorAgent", AID.ISLOCALNAME));
-                    response.setReplyWith(msg.getReplyWith());
-                    response.setContent(newPosition.toString());
-
-                    myAgent.send(response);
-                    System.out.println(myAgent.getAID().getLocalName() + " sent new random position: " + newPosition);
+                //select random move
+                GenericOperator move = moves[rand.nextInt(moves.length)];
+                //get propose position
+                SimulationState ss = ((ParticipantAgent)myAgent).getParticipantState();
+                if (ss!=null) {
+                    Position pre_pos = ss.getPosition();
+                    MapNavigationState pos_state = (MapNavigationState)move.operate(new MapNavigationState(pre_pos));
+                    reply.setContentObject(pos_state.position);
+                    reply.setPerformative(ACLMessage.PROPOSE);
                 }
-            } else {
-                block();
+
+                myAgent.send(reply);
+
+                MessageTemplate mt2 = MessageTemplate.and(
+                        MessageTemplate.MatchConversationId("update-state"),
+                        MessageTemplate.MatchPerformative(ACLMessage.INFORM));
+                ACLMessage inform_msg = myAgent.blockingReceive(mt2, 10000);
+                if (msg != null)
+                {
+                    try {
+                        SimulationState updatedState = (SimulationState)inform_msg.getContentObject();
+                        ((ParticipantAgent)myAgent).setState(updatedState);
+                    } catch (Exception e)
+                    {
+                        e.printStackTrace();
+                    }
+                }
+            }catch (Exception e) {
+                e.printStackTrace();
             }
-        } catch (Exception e) {
-            e.printStackTrace();
+
         }
     }
 }
