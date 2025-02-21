@@ -15,12 +15,12 @@ public class SimulatorAgent extends Agent {
     private Map _map;
 
     // Map parameters
-    int mapSize = 10;
-    int numItems = 10;
-    int numTraps = 5;
+    int mapSize = 5;
+    int numItems = 2;
+    int numTraps = 1;
 
     // Simulation parameters
-    int numParticipants = 3;
+    int numParticipants = 1;
     int numSimRounds = 20;
     int numStepsMapReDist = 10; // If equals numSimRounds, implies no map rescheduling
 

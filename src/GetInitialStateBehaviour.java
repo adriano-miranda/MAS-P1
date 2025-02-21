@@ -1,9 +1,9 @@
-import jade.core.AID;
-import jade.core.behaviours.CyclicBehaviour;
 import jade.core.behaviours.SimpleBehaviour;
 import jade.lang.acl.ACLMessage;
 import jade.lang.acl.MessageTemplate;
 import jade.lang.acl.UnreadableException;
+
+import java.util.Random;
 
 /* Simulator Agent behaviour to handle participant's registrations requests */
 public class GetInitialStateBehaviour extends SimpleBehaviour {
@@ -29,7 +29,7 @@ public class GetInitialStateBehaviour extends SimpleBehaviour {
 
                 ((ParticipantAgent) myAgent).setState(initialState);
                 received = true;
-                myAgent.addBehaviour(new RequestActionBehaviour());
+                myAgent.addBehaviour(new RandomBehaviour());
             } catch (UnreadableException e) {
                 e.printStackTrace(); // Manejo de la excepción (puedes registrar el error o tomar otra acción)
             }
