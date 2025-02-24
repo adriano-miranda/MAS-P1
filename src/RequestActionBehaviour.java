@@ -3,7 +3,7 @@ import jade.lang.acl.ACLMessage;
 import jade.lang.acl.MessageTemplate;
 import java.util.Random;
 
-public class RandomBehaviour extends CyclicBehaviour {
+public class RequestActionBehaviour extends CyclicBehaviour {
 
     Random rand = new Random();
     GenericOperator[] moves = {new MoveDownOperator(), new MoveLeftOperator(),
@@ -31,15 +31,15 @@ public class RandomBehaviour extends CyclicBehaviour {
                     MapNavigationState pos_state = (MapNavigationState)move.operate(new MapNavigationState(pre_pos));
                     reply.setContentObject(pos_state.position);
                     reply.setPerformative(ACLMessage.PROPOSE);
-                    myAgent.send(reply);
-
                 }
+
+                myAgent.send(reply);
 
                 MessageTemplate mt2 = MessageTemplate.and(
                         MessageTemplate.MatchConversationId("update-state"),
                         MessageTemplate.MatchPerformative(ACLMessage.INFORM));
                 ACLMessage inform_msg = myAgent.blockingReceive(mt2, 10000);
-                if (inform_msg != null)
+                if (msg != null)
                 {
                     try {
                         SimulationState updatedState = (SimulationState)inform_msg.getContentObject();

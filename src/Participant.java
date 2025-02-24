@@ -28,6 +28,7 @@ public class Participant extends Agent{
         this.simulationState = simulationState;
         this.numItems = 0;
         this.numTraps = 0;
+        System.out.println("COMMITMENT" + commitment);
         this.commitment = commitment;
         this.currentCommitment = commitment;
     }

@@ -11,6 +11,7 @@ public class Main {
         Runtime rt = Runtime.instance();
 
         Profile p = new ProfileImpl();
+        p.setParameter(Profile.MAIN_HOST, "localhost");
 
         // Crear un contenedor principal con el perfil configurado
         AgentContainer mainContainer = rt.createMainContainer(p);
@@ -32,7 +33,7 @@ public class Main {
                 AgentController participantAgentController = mainContainer.createNewAgent(
                         "Participant" + participantId, // Nombre del agente participante
                         "ParticipantAgent", // Clase que representa a los participantes
-                        new Object[] {1} // Parámetros adicionales si es necesario, en este caso commitment
+                        new Object[] {20} // Parámetros adicionales si es necesario, en este caso commitment
                 );
 
                 participantAgentController.start(); // Iniciar el agente

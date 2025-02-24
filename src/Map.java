@@ -437,4 +437,11 @@ public class Map implements Serializable, Cloneable {
         return mapCopy;
 	}
 
+    public int getNumCols() {
+        return numCols;
+    }
+
+    public int getNumRows() {
+        return numRows;
+    }
 }
