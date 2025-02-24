@@ -6,9 +6,31 @@
   <component name="ChangeListManager">
     <list default="true" id="c2fb7b3f-409d-4b01-b2f3-34856b267724" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MAS-P1/GetInitialStateBehaviour.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MAS-P1/GetInitialStateBehaviour.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MAS-P1.iml" beforeDir="false" afterPath="$PROJECT_DIR$/MAS-P1.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MAS-P1/GenericOperator.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MAS-P1/GetInitialStateBehaviour.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MAS-P1/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MAS-P1/Map.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MAS-P1/MapNavigationState.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MAS-P1/MapNavigator.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MAS-P1/MoveDownOperator.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MAS-P1/MoveLeftOperator.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MAS-P1/MoveRightOperator.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MAS-P1/MoveUpOperator.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MAS-P1/Participant.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MAS-P1/ParticipantAgent.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MAS-P1/Position.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MAS-P1/RegisterParticipantsBehaviour.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MAS-P1/RegisterRequestBehaviour.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MAS-P1/RequestActionBehaviour.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MAS-P1/SimulationManagerBehaviour.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MAS-P1/SimulationState.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MAS-P1/SimulatorAgent$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MAS-P1/SimulatorAgent.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MAS-P1/State.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GetInitialStateBehaviour.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GetInitialStateBehaviour.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/RequestActionBehaviour.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RandomBehaviour.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,23 +55,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
-    &quot;Application.ParticipantsMain.executor&quot;: &quot;Run&quot;,
-    &quot;Application.SimulatorMain.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/djove/Documents/MIA/MAS/labs/jade/JADE-bin-4.6.0/jade/lib/jade.jar&quot;,
-    &quot;onboarding.tips.debug.path&quot;: &quot;/home/djove/Documents/MIA/MAS/labs/MAS-P1/src/Main.java&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Main.executor": "Run",
+    "Application.ParticipantsMain.executor": "Run",
+    "Application.SimulatorMain.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "djove",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/home/djove/Documents/MIA/MAS/labs/jade/JADE-bin-4.6.0/jade/lib/jade.jar",
+    "onboarding.tips.debug.path": "/home/djove/Documents/MIA/MAS/labs/MAS-P1/src/Main.java",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src" />
@@ -65,15 +87,5 @@
       <updated>1739552192701</updated>
     </task>
     <servers />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Main.java</url>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

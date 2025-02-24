@@ -3,7 +3,7 @@ import jade.lang.acl.ACLMessage;
 import jade.lang.acl.MessageTemplate;
 import java.util.Random;
 
-public class RequestActionBehaviour extends CyclicBehaviour {
+public class RandomBehaviour extends CyclicBehaviour {
 
     Random rand = new Random();
     GenericOperator[] moves = {new MoveDownOperator(), new MoveLeftOperator(),

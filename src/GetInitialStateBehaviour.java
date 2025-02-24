@@ -29,11 +29,7 @@ public class GetInitialStateBehaviour extends SimpleBehaviour {
 
                 ((ParticipantAgent) myAgent).setState(initialState);
                 received = true;
-<<<<<<< Updated upstream:GetInitialStateBehaviour.java
-                myAgent.addBehaviour(new RequestActionBehaviour());
-=======
-                myAgent.addBehaviour(new NearestItemBehaviour());
->>>>>>> Stashed changes:src/GetInitialStateBehaviour.java
+                myAgent.addBehaviour(new RandomBehaviour());
             } catch (UnreadableException e) {
                 e.printStackTrace(); // Manejo de la excepción (puedes registrar el error o tomar otra acción)
             }
