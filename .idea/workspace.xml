@@ -5,31 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c2fb7b3f-409d-4b01-b2f3-34856b267724" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/out/production/MAS-P1/CheckSimulatorAgentBehaviour.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/MAS-P1/ReactiveBehaviour.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/MAS-P1/RequestActionBehaviour.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/BlindSnakeBehaviour.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/GreedySearchBehaviour.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ReactiveBehaviour.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/RequestActionBehaviour.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MAS-P1.iml" beforeDir="false" afterPath="$PROJECT_DIR$/MAS-P1.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MAS-P1/GetInitialStateBehaviour.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MAS-P1/GetInitialStateBehaviour.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/MAS-P1/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MAS-P1/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MAS-P1/Map.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MAS-P1/Map.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MAS-P1/Participant.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MAS-P1/Participant.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MAS-P1/ParticipantAgent.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MAS-P1/ParticipantAgent.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MAS-P1/RegisterRequestBehaviour.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MAS-P1/RegisterRequestBehaviour.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MAS-P1/SimulatorAgent.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MAS-P1/SimulatorAgent.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GetInitialStateBehaviour.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GetInitialStateBehaviour.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GreedySearchBehaviour.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GreedySearchBehaviour.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Map.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Map.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Participant.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Participant.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ParticipantAgent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ParticipantAgent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/RandomBehaviour.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RandomBehaviour.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/RegisterRequestBehaviour.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RegisterRequestBehaviour.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SimulatorAgent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SimulatorAgent.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,24 +34,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.Main.executor": "Run",
-    "Application.ParticipantsMain.executor": "Run",
-    "Application.SimulatorMain.executor": "Run",
-    "Application.TileBlocks.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "Merging djove",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/home/djove/Documents/MIA/MAS/labs/jade/JADE-bin-4.6.0/jade/lib/jade.jar",
-    "onboarding.tips.debug.path": "/home/djove/Documents/MIA/MAS/labs/MAS-P1/src/Main.java",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.pluginManager"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;Application.ParticipantsMain.executor&quot;: &quot;Run&quot;,
+    &quot;Application.SimulatorMain.executor&quot;: &quot;Run&quot;,
+    &quot;Application.TileBlocks.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;djove&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/djove/Documents/MIA/MAS/labs/jade/JADE-bin-4.6.0/jade/lib/jade.jar&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;/home/djove/Documents/MIA/MAS/labs/MAS-P1/src/Main.java&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src" />
@@ -104,11 +84,6 @@
           <url>file://$PROJECT_DIR$/src/SimulationManagerBehaviour.java</url>
           <line>41</line>
           <option name="timeStamp" value="8" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/GreedySearchBehaviour.java</url>
-          <line>92</line>
-          <option name="timeStamp" value="13" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

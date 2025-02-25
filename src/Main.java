@@ -33,7 +33,7 @@ public class Main {
                 AgentController participantAgentController = mainContainer.createNewAgent(
                         "Participant" + participantId, // Nombre del agente participante
                         "ParticipantAgent", // Clase que representa a los participantes
-                        new Object[] {20} // Parámetros adicionales si es necesario, en este caso commitment
+                        new Object[] {10} // Parámetros adicionales si es necesario, en este caso commitment
                 );
 
                 participantAgentController.start(); // Iniciar el agente

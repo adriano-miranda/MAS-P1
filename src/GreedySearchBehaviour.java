@@ -1,5 +1,6 @@
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Random;
 
 import jade.core.behaviours.CyclicBehaviour;
 import jade.lang.acl.ACLMessage;
@@ -9,7 +10,7 @@ public class GreedySearchBehaviour extends CyclicBehaviour {
 
     GenericOperator[] moves = { new MoveRightOperator(), new MoveUpOperator(),
             new MoveLeftOperator(), new MoveDownOperator() };
-
+    Random rand = new Random();
     @Override
     public void action() {
         MessageTemplate mt = MessageTemplate.and(
@@ -50,7 +51,6 @@ public class GreedySearchBehaviour extends CyclicBehaviour {
             } catch (Exception e) {
                 e.printStackTrace();
             }
-
         }
     }
 
@@ -84,6 +84,8 @@ public class GreedySearchBehaviour extends CyclicBehaviour {
                 }
                 index++;
             }
+        }else{
+            nextMove = rand.nextInt(moves.length);
         }
         return moves[nextMove];
     }
@@ -96,8 +98,6 @@ public class GreedySearchBehaviour extends CyclicBehaviour {
         if (!resources.isEmpty()) {
 
             for (Position resource : resources) {
-                System.out.print("Position");
-                System.out.println(resource.toString());
                 int distance = calculateDistance(currentPosition, resource);
                 if (distance < minDistance) {
                     minDistance = distance;

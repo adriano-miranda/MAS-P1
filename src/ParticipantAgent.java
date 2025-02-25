@@ -50,11 +50,11 @@ public class ParticipantAgent extends Agent {
         agentState = simulationState;
     }
 
-    public boolean get_last_valid(){
+    public boolean getLastValid(){
         return last_move_valid;
     }
 
-    public void set_last_valid(boolean valid){
+    public void setLastValid(boolean valid){
         last_move_valid = valid;
     }
     public SimulationState getParticipantState(){
