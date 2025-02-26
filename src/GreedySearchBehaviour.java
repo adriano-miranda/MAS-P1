@@ -85,10 +85,37 @@ public class GreedySearchBehaviour extends CyclicBehaviour {
                 index++;
             }
         }else{
-            nextMove = rand.nextInt(moves.length);
+            return getRandomMove(ss);
         }
         return moves[nextMove];
     }
+
+    private GenericOperator getRandomMove(SimulationState ss) {
+        List<GenericOperator> possibleMoves = new LinkedList<>();
+        Position pos = ss.getPosition();
+        int numRows = ss.getMap().getNumRows();
+        int numCols = ss.getMap().getNumCols();
+
+        if (pos.getY() < numCols - 1) { // Puede moverse a la derecha
+            possibleMoves.add(new MoveRightOperator());
+        }
+        if (pos.getX() > 0) { // Puede moverse hacia arriba
+            possibleMoves.add(new MoveUpOperator());
+        }
+        if (pos.getY() > 0) { // Puede moverse a la izquierda
+            possibleMoves.add(new MoveLeftOperator());
+        }
+        if (pos.getX() < numRows - 1) { // Puede moverse hacia abajo
+            possibleMoves.add(new MoveDownOperator());
+        }
+
+        if (possibleMoves.isEmpty()) {
+            return null; // No hay movimientos posibles
+        }
+
+        return possibleMoves.get(rand.nextInt(possibleMoves.size()));
+    }
+
 
     private Position findNearestResource(Map map, Position currentPosition) {
         List<Position> resources = map.getItemPositions();
@@ -96,7 +123,6 @@ public class GreedySearchBehaviour extends CyclicBehaviour {
         int minDistance = Integer.MAX_VALUE;
 
         if (!resources.isEmpty()) {
-
             for (Position resource : resources) {
                 int distance = calculateDistance(currentPosition, resource);
                 if (distance < minDistance) {
