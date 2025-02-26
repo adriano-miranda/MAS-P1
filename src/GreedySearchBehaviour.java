@@ -1,6 +1,8 @@
+import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
+import java.util.Set;
 
 import jade.core.behaviours.CyclicBehaviour;
 import jade.lang.acl.ACLMessage;
@@ -8,9 +10,11 @@ import jade.lang.acl.MessageTemplate;
 
 public class GreedySearchBehaviour extends CyclicBehaviour {
 
+    Position last_visited;
     GenericOperator[] moves = { new MoveRightOperator(), new MoveUpOperator(),
             new MoveLeftOperator(), new MoveDownOperator() };
     Random rand = new Random();
+
     @Override
     public void action() {
         MessageTemplate mt = MessageTemplate.and(
@@ -27,8 +31,12 @@ public class GreedySearchBehaviour extends CyclicBehaviour {
                 GenericOperator move = getNextMove(ss);
 
                 if (ss != null) {
-                    System.out.println("sending propose operator:" + move.toString());
                     Position pre_pos = ss.getPosition();
+                    if (!((ParticipantAgent) myAgent).visitedPositions.contains(pre_pos)){
+                        ((ParticipantAgent) myAgent).visitedPositions.add(new Position(pre_pos.x,
+                                pre_pos.y));
+                    }
+
                     MapNavigationState pos_state = (MapNavigationState) move.operate(new MapNavigationState(pre_pos));
                     reply.setContentObject(pos_state.position);
                     reply.setPerformative(ACLMessage.PROPOSE);
@@ -56,6 +64,7 @@ public class GreedySearchBehaviour extends CyclicBehaviour {
 
     public GenericOperator getNextMove(SimulationState ss) {
         Map map = ss.getMap();
+
         Position currentPosition = ss.getPosition();
         Position goalPosition = findNearestResource(map, currentPosition);
         List<Position> possibleMoves = new LinkedList<>();
@@ -72,19 +81,27 @@ public class GreedySearchBehaviour extends CyclicBehaviour {
         int minDistance = Integer.MAX_VALUE;
         int index = 0;
         int nextMove = 0;
-
+        int count_visited = 0;
         if (goalPosition != null) {
             for (Position position : possibleMoves) {
-                if (!map.isTrapPosition(position)) {
+                if (!map.isTrapPosition(position) && !((ParticipantAgent) myAgent).visitedPositions.contains(position) &&
+                map.withinMapLimits(position)) { // Check if the position has been visited
                     int distance = calculateDistance(position, goalPosition);
                     if (distance < minDistance) {
                         minDistance = distance;
                         nextMove = index;
                     }
+                }else{
+                    count_visited++;
                 }
                 index++;
             }
-        }else{
+
+            if (count_visited == 4){
+                ((ParticipantAgent) myAgent).visitedPositions.clear();
+                return getRandomMove(ss);
+            }
+        } else {
             return getRandomMove(ss);
         }
         return moves[nextMove];
@@ -96,26 +113,52 @@ public class GreedySearchBehaviour extends CyclicBehaviour {
         int numRows = ss.getMap().getNumRows();
         int numCols = ss.getMap().getNumCols();
 
-        if (pos.getY() < numCols - 1) { // Puede moverse a la derecha
+        // Move Right
+        Position rightPos = new Position(pos.getX(), pos.getY() + 1);
+        if (pos.getY() < numCols - 1 && !ss.getMap().isTrapPosition(rightPos)) { // Check for trap
             possibleMoves.add(new MoveRightOperator());
         }
-        if (pos.getX() > 0) { // Puede moverse hacia arriba
+
+        // Move Up
+        Position upPos = new Position(pos.getX() - 1, pos.getY());
+        if (pos.getX() > 0 && !ss.getMap().isTrapPosition(upPos)) { // Check for trap
             possibleMoves.add(new MoveUpOperator());
         }
-        if (pos.getY() > 0) { // Puede moverse a la izquierda
+
+        // Move Left
+        Position leftPos = new Position(pos.getX(), pos.getY() - 1);
+        if (pos.getY() > 0 && !ss.getMap().isTrapPosition(leftPos)) { // Check for trap
             possibleMoves.add(new MoveLeftOperator());
         }
-        if (pos.getX() < numRows - 1) { // Puede moverse hacia abajo
+
+        // Move Down
+        Position downPos = new Position(pos.getX() + 1, pos.getY());
+        if (pos.getX() < numRows - 1 && !ss.getMap().isTrapPosition(downPos)) { // Check for trap
             possibleMoves.add(new MoveDownOperator());
         }
 
+        // If no valid moves are left, return null
         if (possibleMoves.isEmpty()) {
-            return null; // No hay movimientos posibles
+            return null; // No valid movements
         }
 
+        // Return a random valid move
         return possibleMoves.get(rand.nextInt(possibleMoves.size()));
     }
 
+    private Position getPositionForMove(SimulationState ss, GenericOperator move) {
+        Position currentPosition = ss.getPosition();
+        if (move instanceof MoveRightOperator) {
+            return new Position(currentPosition.x, currentPosition.y + 1);
+        } else if (move instanceof MoveUpOperator) {
+            return new Position(currentPosition.x - 1, currentPosition.y);
+        } else if (move instanceof MoveLeftOperator) {
+            return new Position(currentPosition.x, currentPosition.y - 1);
+        } else if (move instanceof MoveDownOperator) {
+            return new Position(currentPosition.x + 1, currentPosition.y);
+        }
+        return null;
+    }
 
     private Position findNearestResource(Map map, Position currentPosition) {
         List<Position> resources = map.getItemPositions();

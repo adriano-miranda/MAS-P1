@@ -29,7 +29,22 @@ public class GetInitialStateBehaviour extends SimpleBehaviour {
 
                 ((ParticipantAgent) myAgent).setState(initialState);
                 received = true;
-                myAgent.addBehaviour(new GreedySearchBehaviour());
+
+                String strategy  = ((ParticipantAgent) myAgent).getStrategy();
+                switch (strategy){
+                    case "RANDOM":
+                        myAgent.addBehaviour(new RandomBehaviour());
+                        break;
+                    case "GREEDY":
+                        myAgent.addBehaviour(new GreedySearchBehaviour());
+                        break;
+                    case "SNAKE":
+                        myAgent.addBehaviour(new BlindSnakeBehaviour());
+                        break;
+                    default:
+                        throw new IllegalArgumentException("Unknown strategy: " + strategy);
+                }
+
             } catch (UnreadableException e) {
                 e.printStackTrace(); // Manejo de la excepción (puedes registrar el error o tomar otra acción)
             }

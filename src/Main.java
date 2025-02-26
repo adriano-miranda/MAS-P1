@@ -27,18 +27,30 @@ public class Main {
             simulatorAgentController.start(); // Iniciar el agente
             System.out.println("SimulatorAgent ha sido iniciado.");
 
-            // Crear y poner en marcha los participantes (2 agentes de ejemplo)
-            for (int i = 1; i <= 1;  i++) {
-                final int participantId = i;
-                AgentController participantAgentController = mainContainer.createNewAgent(
-                        "Participant" + participantId, // Nombre del agente participante
-                        "ParticipantAgent", // Clase que representa a los participantes
-                        new Object[] {10} // Parámetros adicionales si es necesario, en este caso commitment
-                );
+            //The strategies must be one of ["RANDOM", "GREEDY", "SNAKE"]
+            // PARTICIPANT 1
+            AgentController participantAgentController1 = mainContainer.createNewAgent(
+                    "Participant" + 1, // Nombre del agente participante
+                    "ParticipantAgent", // Clase que representa a los participantes
+                    new Object[] {10, "GREEDY"} // Parámetros adicionales si es necesario, en este caso commitment
+            );
+            participantAgentController1.start(); // Iniciar el agente
 
-                participantAgentController.start(); // Iniciar el agente
-                System.out.println("Participant" + participantId + " ha sido iniciado.");
-            }
+           // // PARTICIPANT 3
+           // AgentController participantAgentController2 = mainContainer.createNewAgent(
+           //         "Participant" + 1,
+           //         "ParticipantAgent",
+           //         new Object[] {10, "RANDOM"}
+           // );
+           // participantAgentController2.start();
+//
+           // // PARTICIPANT 2
+           // AgentController participantAgentController3 = mainContainer.createNewAgent(
+           //         "Participant" + 1,
+           //         "ParticipantAgent",
+           //         new Object[] {10, "RANDOM"}
+           // );
+           // participantAgentController3.start();
 
         } catch (Exception e) {
             e.printStackTrace();

@@ -6,7 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="c2fb7b3f-409d-4b01-b2f3-34856b267724" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GetInitialStateBehaviour.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GetInitialStateBehaviour.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GreedySearchBehaviour.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GreedySearchBehaviour.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ParticipantAgent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ParticipantAgent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SimulatorAgent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SimulatorAgent.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,16 +77,5 @@
       <updated>1739552192701</updated>
     </task>
     <servers />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/SimulationManagerBehaviour.java</url>
-          <line>41</line>
-          <option name="timeStamp" value="8" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

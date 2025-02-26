@@ -3,6 +3,11 @@ import jade.core.behaviours.OneShotBehaviour;
 import jade.lang.acl.ACLMessage;
 import jade.lang.acl.MessageTemplate;
 
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
 public class ParticipantAgent extends Agent {
 
     private int commitment = 1;
@@ -10,12 +15,16 @@ public class ParticipantAgent extends Agent {
     private SimulationState agentState;
     private boolean simulatorFound = false;
     private boolean last_move_valid = true;
+    private String strategy = "RANDOM";
+    public List<Position> visitedPositions = new ArrayList<Position>(); // Set to track visited positions
 
     @Override
     protected void setup() {
         Object[] args = getArguments();
         if (args != null && args.length > 0) {
             this.commitment = (int) args[0];
+            this.strategy = (String) args[1];
+
         } else {
             System.err.println(getAID().getLocalName() + ": Error, argumentos inválidos.");
             doDelete();
@@ -52,6 +61,11 @@ public class ParticipantAgent extends Agent {
 
     public boolean getLastValid(){
         return last_move_valid;
+    }
+
+    public String getStrategy(){return strategy;}
+    public void setStrategy(String strategy){
+        this.strategy = strategy;
     }
 
     public void setLastValid(boolean valid){
