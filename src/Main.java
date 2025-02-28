@@ -30,27 +30,27 @@ public class Main {
             //The strategies must be one of ["RANDOM", "GREEDY", "SNAKE"]
             // PARTICIPANT 1
             AgentController participantAgentController1 = mainContainer.createNewAgent(
-                    "Participant" + 1, // Nombre del agente participante
+                    "Participant" + "RANDOM", // Nombre del agente participante
                     "ParticipantAgent", // Clase que representa a los participantes
-                    new Object[] {10, "GREEDY"} // Parámetros adicionales si es necesario, en este caso commitment
+                    new Object[] {20, "RANDOM"} // Parámetros adicionales si es necesario, en este caso commitment
             );
             participantAgentController1.start(); // Iniciar el agente
 
-           // // PARTICIPANT 3
-           // AgentController participantAgentController2 = mainContainer.createNewAgent(
-           //         "Participant" + 1,
-           //         "ParticipantAgent",
-           //         new Object[] {10, "RANDOM"}
-           // );
-           // participantAgentController2.start();
-//
-           // // PARTICIPANT 2
-           // AgentController participantAgentController3 = mainContainer.createNewAgent(
-           //         "Participant" + 1,
-           //         "ParticipantAgent",
-           //         new Object[] {10, "RANDOM"}
-           // );
-           // participantAgentController3.start();
+            // PARTICIPANT 2
+            AgentController participantAgentController2 = mainContainer.createNewAgent(
+                    "Participant" + "GREEDY",
+                    "ParticipantAgent",
+                    new Object[] {20, "GREEDY"}
+            );
+            participantAgentController2.start();
+
+            // PARTICIPANT 3
+            AgentController participantAgentController3 = mainContainer.createNewAgent(
+                    "Participant" + "SNAKE",
+                    "ParticipantAgent",
+                    new Object[] {20, "RANDOM"}
+            );
+            participantAgentController3.start();
 
         } catch (Exception e) {
             e.printStackTrace();

@@ -6,10 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="c2fb7b3f-409d-4b01-b2f3-34856b267724" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GetInitialStateBehaviour.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GetInitialStateBehaviour.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GreedySearchBehaviour.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GreedySearchBehaviour.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ParticipantAgent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ParticipantAgent.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/SimulatorAgent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SimulatorAgent.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
