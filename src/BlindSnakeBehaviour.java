@@ -27,10 +27,7 @@ public class BlindSnakeBehaviour extends CyclicBehaviour {
         if(msg != null){
             try {
                 ACLMessage reply = msg.createReply();
-                //This method automatically sets several parameters of the new message based on the received 
-                //message, including receiver,language, ontology, protocol, conversation-id, in-reply-to, and reply-with
 
-                //get propose position
                 SimulationState ss = ((ParticipantAgent)myAgent).getParticipantState();
                 GenericOperator move = getNextMove(ss);
 
@@ -75,7 +72,6 @@ public class BlindSnakeBehaviour extends CyclicBehaviour {
 
 
         while (reset_flag<2) {
-            //try to move in different 4 directions
             while (direction_changes < change_direction_limit+1) {
                 nextPosition = getNewPosition(numRows, numCols, currentPosition);
                 if (!nextPosition.equals(visited.get(visited.size() - 1))) {
@@ -89,8 +85,6 @@ public class BlindSnakeBehaviour extends CyclicBehaviour {
             }
             reset_flag++;
 
-            //canot move to an unvisited position
-            //reset visited positions
             visited.clear();
             visited.add(nextPosition);
             direction_changes = 0;

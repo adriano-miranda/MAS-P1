@@ -48,6 +48,7 @@ public class GreedySearchBehaviour extends CyclicBehaviour {
                         MessageTemplate.MatchConversationId("update-state"),
                         MessageTemplate.MatchPerformative(ACLMessage.INFORM));
                 ACLMessage inform_msg = myAgent.blockingReceive(mt2, 10000);
+
                 if (msg != null) {
                     try {
                         SimulationState updatedState = (SimulationState) inform_msg.getContentObject();
@@ -144,20 +145,6 @@ public class GreedySearchBehaviour extends CyclicBehaviour {
 
         // Return a random valid move
         return possibleMoves.get(rand.nextInt(possibleMoves.size()));
-    }
-
-    private Position getPositionForMove(SimulationState ss, GenericOperator move) {
-        Position currentPosition = ss.getPosition();
-        if (move instanceof MoveRightOperator) {
-            return new Position(currentPosition.x, currentPosition.y + 1);
-        } else if (move instanceof MoveUpOperator) {
-            return new Position(currentPosition.x - 1, currentPosition.y);
-        } else if (move instanceof MoveLeftOperator) {
-            return new Position(currentPosition.x, currentPosition.y - 1);
-        } else if (move instanceof MoveDownOperator) {
-            return new Position(currentPosition.x + 1, currentPosition.y);
-        }
-        return null;
     }
 
     private Position findNearestResource(Map map, Position currentPosition) {

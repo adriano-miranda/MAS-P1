@@ -23,9 +23,6 @@ public class GetInitialStateBehaviour extends SimpleBehaviour {
         if (reply != null) {
             try {
                 SimulationState initialState = (SimulationState) reply.getContentObject();
-                System.out.println("Received AGREE from: " + reply.getSender().getName());
-                System.out.println("Initial simulation map: \n" + initialState.getMap().toString());
-                System.out.println("Initial simulation position: \n" + initialState.getPosition().toString());
 
                 ((ParticipantAgent) myAgent).setState(initialState);
                 received = true;
@@ -46,10 +43,10 @@ public class GetInitialStateBehaviour extends SimpleBehaviour {
                 }
 
             } catch (UnreadableException e) {
-                e.printStackTrace(); // Manejo de la excepción (puedes registrar el error o tomar otra acción)
+                e.printStackTrace();
             }
         } else {
-            block(); // Evita el uso innecesario de CPU
+            block(); // Avoid unnecesary CPU usage
         }
     }
 

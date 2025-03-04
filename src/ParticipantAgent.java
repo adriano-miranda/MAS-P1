@@ -25,13 +25,14 @@ public class ParticipantAgent extends Agent {
             this.commitment = (int) args[0];
             this.strategy = (String) args[1];
 
+
         } else {
-            System.err.println(getAID().getLocalName() + ": Error, argumentos inválidos.");
+            System.err.println(getAID().getLocalName() + ": Error, invalid arguments");
             doDelete();
             return;
         }
 
-        System.out.println(getAID().getLocalName() + " ha sido iniciado.");
+        System.out.println("The agent with " + this.strategy +  " has been initialized with commitment = " + this.commitment);
         addBehaviour(new CheckSimulatorAgentBehaviour(this, 2000));
 
 

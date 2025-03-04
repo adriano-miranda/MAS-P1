@@ -25,7 +25,6 @@ public class Main {
             );
 
             simulatorAgentController.start(); // Iniciar el agente
-            System.out.println("SimulatorAgent ha sido iniciado.");
 
             //The strategies must be one of ["RANDOM", "GREEDY", "SNAKE"]
             // PARTICIPANT 1
@@ -48,7 +47,7 @@ public class Main {
             AgentController participantAgentController3 = mainContainer.createNewAgent(
                     "Participant" + "SNAKE",
                     "ParticipantAgent",
-                    new Object[] {20, "RANDOM"}
+                    new Object[] {20, "SNAKE"}
             );
             participantAgentController3.start();
 

@@ -19,12 +19,8 @@ public class RandomBehaviour extends CyclicBehaviour {
         if(msg != null){
             try {
                 ACLMessage reply = msg.createReply();
-                //This method automatically sets several parameters of the new message based on the received
-                //message, including receiver,language, ontology, protocol, conversation-id, in-reply-to, and reply-with
 
-                //select random move
                 GenericOperator move = moves[rand.nextInt(moves.length)];
-                //get propose position
                 SimulationState ss = ((ParticipantAgent)myAgent).getParticipantState();
                 if (ss!=null) {
                     Position pre_pos = ss.getPosition();
